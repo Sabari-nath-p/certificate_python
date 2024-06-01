@@ -1,25 +1,44 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <title>Read Document</title>
 </head>
 
 <body>
-    <h1>Read Document by Search ID</h1>
-    <form method="post">
-        <label>Search ID:</label><input type="text" name="search_id"><br>
-        <input type="submit" value="Search">
-    </form>
-    {% if documents %}
-    <h2>Documents</h2>
-    <ul>
-        {% for doc_id, doc in documents.items() %}
-        <li>ID: {{ doc_id }} - Data: {{ doc }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    <a href="/">Back to Home</a>
+    <div class="container mt-5">
+        <h1 class="text-center">Read Document</h1>
+        <form method="POST" action="{{ url_for('read_documents_by_search_id') }}">
+            <div class="form-group">
+                <label for="search_id">Search ID</label>
+                <input type="text" class="form-control" id="search_id" name="search_id" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        {% if documents %}
+        <div class="mt-4">
+            <h2>Documents</h2>
+            <ul class="list-group">
+                {% for doc_id, doc_data in documents.items() %}
+                <li class="list-group-item">
+                    <strong>ID:</strong> {{ doc_id }} <br>
+                    <strong>Name:</strong> {{ doc_data.name }} <br>
+                    <strong>Search ID:</strong> {{ doc_data.search_id }} <br>
+                    <strong>Department:</strong> {{ doc_data.SEM }} <br>
+                    <strong>Certificate ID:</strong> {{ doc_data.certificate_id }} <br>
+                    <strong>Position:</strong> {{ doc_data.POS }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>

@@ -1,21 +1,43 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <title>Create Document</title>
 </head>
 
 <body>
-    <h1>Create Document</h1>
-    <form method="post">
-        <label>Name:</label><input type="text" name="name"><br>
-        <label>Search ID:</label><input type="text" name="search_id"><br>
-        <label>Department:</label><input type="text" name="SEM"><br>
-        <label>Certificate ID:</label><input type="text" name="certificate_id"><br>
-        <label>Position:</label><input type="text" name="POS"><br>
-        <input type="submit" value="Create">
-    </form>
-    <a href="/">Back to Home</a>
+    <div class="container mt-5">
+        <h1 class="text-center">Create Document</h1>
+        <form method="POST" action="{{ url_for('create_document') }}">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="search_id">Search ID</label>
+                <input type="text" class="form-control" id="search_id" name="search_id" required>
+            </div>
+            <div class="form-group">
+                <label for="SEM">Department</label>
+                <input type="text" class="form-control" id="SEM" name="SEM" required>
+            </div>
+            <div class="form-group">
+                <label for="certificate_id">Certificate ID</label>
+                <input type="text" class="form-control" id="certificate_id" name="certificate_id" required>
+            </div>
+            <div class="form-group">
+                <label for="POS">Position</label>
+                <input type="text" class="form-control" id="POS" name="POS" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>

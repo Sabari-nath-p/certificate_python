@@ -1,27 +1,35 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <title>Certificate Management</title>
 </head>
 
 <body>
-    <h1>Certificate Management System</h1>
-    <ul>
-        <li><a href="/create">Create Document</a></li>
-        <li><a href="/read">Read Document by Search ID</a></li>
-        <li><a href="/update">Update Document</a></li>
-        <li><a href="/delete">Delete Document</a></li>
-    </ul>
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <ul>
-        {% for message in messages %}
-        <li>{{ message }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    {% endwith %}
+    <div class="container mt-5">
+        <h1 class="text-center">Certificate Management</h1>
+        <div class="row mt-4">
+            <div class="col-md-3">
+                <a href="{{ url_for('create_document') }}" class="btn btn-primary btn-block">Create Document</a>
+            </div>
+            <div class="col-md-3">
+                <a href="{{ url_for('read_documents_by_search_id') }}" class="btn btn-secondary btn-block">Read
+                    Documents</a>
+            </div>
+            <div class="col-md-3">
+                <a href="{{ url_for('update_document') }}" class="btn btn-success btn-block">Update Document</a>
+            </div>
+            <div class="col-md-3">
+                <a href="{{ url_for('delete_document') }}" class="btn btn-danger btn-block">Delete Document</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
