@@ -26,7 +26,7 @@ def create_document():
             'certificate_id': request.form['certificate_id'],
             'POS': request.form['POS'],
             'organizer_name': "CEMP",
-            'event_name': "Sport",
+            'event_name': request.form['event'] ,
             'event': request.form['event']  # New field
         }
         try:
