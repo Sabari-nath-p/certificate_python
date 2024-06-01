@@ -26,7 +26,8 @@ def create_document():
             'certificate_id': request.form['certificate_id'],
             'POS': request.form['POS'],
             'organizer_name': "CEMP",
-            'event_name': "Sport"
+            'event_name': "Sport",
+            'event': request.form['event']  # New field
         }
         try:
             db.collection(COLLECTION_NAME).add(data)
@@ -65,6 +66,8 @@ def update_document():
             update_data['certificate_id'] = request.form['certificate_id']
         if request.form['POS']:
             update_data['POS'] = request.form['POS']
+        if request.form['event']:  # New field
+            update_data['event'] = request.form['event']
         try:
             db.collection(COLLECTION_NAME).document(doc_id).update(update_data)
             flash('Document updated successfully.')
