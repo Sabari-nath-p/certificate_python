@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Read Document</title>
+</head>
+
+<body>
+    <h1>Read Document by Search ID</h1>
+    <form method="post">
+        <label>Search ID:</label><input type="text" name="search_id"><br>
+        <input type="submit" value="Search">
+    </form>
+    {% if documents %}
+    <h2>Documents</h2>
+    <ul>
+        {% for doc_id, doc in documents.items() %}
+        <li>ID: {{ doc_id }} - Data: {{ doc }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <a href="/">Back to Home</a>
+</body>
+
+</html>
