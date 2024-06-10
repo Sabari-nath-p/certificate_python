@@ -37,7 +37,7 @@ def create_document():
             flash(f'Error creating document: {e}')
     return render_template('create_document.html')
 
-    @app.route('/create_custom', methods=['GET', 'POST'])
+@app.route('/create_custom', methods=['GET', 'POST'])
 def create_custom():
     if request.method == 'POST':
         data = {
