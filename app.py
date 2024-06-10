@@ -37,6 +37,27 @@ def create_document():
             flash(f'Error creating document: {e}')
     return render_template('create_document.html')
 
+    @app.route('/create_custom', methods=['GET', 'POST'])
+def create_custom():
+    if request.method == 'POST':
+        data = {
+            'name': request.form['name'],
+            'search_id': request.form['search_id'],
+            'SEM': request.form['SEM'],
+            'certificate_id': request.form['certificate_id'],
+            'POS': request.form['POS'],
+            'organizer_name': "CEMP",
+            'event_name': request.form['event'] ,
+            'event': request.form['event']  # New field
+        }
+        try:
+            db.collection(COLLECTION_NAME).add(data)
+            flash('Document created successfully.')
+            return redirect(url_for('create_custom'))
+        except Exception as e:
+            flash(f'Error creating document: {e}')
+    return render_template('custom_add.html.html')
+
 @app.route('/read', methods=['GET', 'POST'])
 def read_documents_by_search_id():
     documents = None
