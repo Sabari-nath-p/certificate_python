@@ -56,7 +56,7 @@ def create_custom():
             return redirect(url_for('create_custom'))
         except Exception as e:
             flash(f'Error creating document: {e}')
-    return render_template('custom_add.html.html')
+    return render_template('custom_add.html')
 
 @app.route('/read', methods=['GET', 'POST'])
 def read_documents_by_search_id():
